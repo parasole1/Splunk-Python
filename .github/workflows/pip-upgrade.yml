@@ -1,0 +1,39 @@
+name: Install Dependencies
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  install:
+    runs-on: ubuntu-latest  # You can change this to other OS runners (e.g., macos-latest, windows-latest)
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12'  # Specify the Python version
+
+    - name: Upgrade pip
+      run: |
+        python -m pip install --upgrade pip
+
+    - name: Install build dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential python3-dev cython3  # Install necessary build tools
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --no-cache-dir -r requirements.txt  # Install dependencies without cache
+
+    - name: Verify installation
+      run: |
+        python -m pip show -f PyYAML  # Verify that PyYAML is installed successfully
