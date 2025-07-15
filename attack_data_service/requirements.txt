@@ -47,7 +47,7 @@ path.py==12.5.0
 pexpect==4.8.0
 pluggy==0.13.1
 pre-commit==2.13.0
-protobuf==3.17.3
+protobuf==4.25.8
 psutil==5.8.0
 ptyprocess==0.7.0
 py==1.11.0
@@ -71,7 +71,7 @@ splunk-sdk==2.0.2
 tabulate==0.8.9
 termcolor==1.1.0
 toml==0.10.2
-urllib3==1.26.7
+urllib3==2.5.0
 virtualenv==16.7.9
 wcwidth==0.2.5
 wget==3.2
